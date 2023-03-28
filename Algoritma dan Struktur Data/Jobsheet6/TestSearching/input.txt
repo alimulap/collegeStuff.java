@@ -1,0 +1,41 @@
+2017
+Dewi Lestari
+23
+3.5
+2018
+Sinta Sanjaya
+22
+4
+2019
+Danang Adi
+22
+3.7
+2020
+Budi Prakarya
+20
+2.9
+2021
+Vania Siti
+20
+3.0
+20182017
+Dewi Lestari
+23
+3.5
+2018
+Sinta Sanjaya
+22
+4
+2019
+Danang Adi
+22
+3.7
+2020
+Budi Prakarya
+20
+2.9
+2021
+Vania Siti
+20
+3.0
+2018
