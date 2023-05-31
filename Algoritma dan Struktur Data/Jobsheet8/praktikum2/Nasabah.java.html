@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>F:\Kuliah\Code\collegeStuff.java\Algoritma dan Struktur Data\Jobsheet8\praktikum2\Nasabah.java.html</title>
+<meta name="Generator" content="Vim/8.0">
+<meta name="plugin-version" content="vim8.1_v2">
+<meta name="syntax" content="java">
+<meta name="settings" content="number_lines,use_css,no_foldcolumn,expand_tabs,line_ids,prevent_copy=,use_input_for_pc=fallback">
+<meta name="colorscheme" content="tokyonight">
+<style>
+<!--
+pre { font-family: monospace; color: #c8d3f5; background-color: #000000; }
+body { font-family: monospace; color: #c8d3f5; background-color: #000000; }
+* { font-size: 1em; }
+.PreProc { color: #86e1fc; }
+.LineNr { color: #3b4261; }
+.Type { color: #65bcff; }
+-->
+</style>
+
+<script>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  var lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<pre id='vimCodeElement'>
+<span id="L1" class="LineNr"> 1 </span><span class="PreProc">package</span> praktikum2;
+<span id="L2" class="LineNr"> 2 </span>
+<span id="L3" class="LineNr"> 3 </span><span class="Type">class</span> Nasabah {
+<span id="L4" class="LineNr"> 4 </span>    String norek;
+<span id="L5" class="LineNr"> 5 </span>    String nama;
+<span id="L6" class="LineNr"> 6 </span>    String alamat;
+<span id="L7" class="LineNr"> 7 </span>    <span class="Type">int</span> umur;
+<span id="L8" class="LineNr"> 8 </span>    <span class="Type">double</span> saldo;
+<span id="L9" class="LineNr"> 9 </span>
+<span id="L10" class="LineNr">10 </span>    Nasabah() {
+<span id="L11" class="LineNr">11 </span>    }
+<span id="L12" class="LineNr">12 </span>
+<span id="L13" class="LineNr">13 </span>    Nasabah(String norek, String nama, String alamat, <span class="Type">int</span> umur, <span class="Type">double</span> saldo) {
+<span id="L14" class="LineNr">14 </span>        <span class="Type">this</span>.norek = norek;
+<span id="L15" class="LineNr">15 </span>        <span class="Type">this</span>.nama = nama;
+<span id="L16" class="LineNr">16 </span>        <span class="Type">this</span>.alamat = alamat;
+<span id="L17" class="LineNr">17 </span>        <span class="Type">this</span>.umur = umur;
+<span id="L18" class="LineNr">18 </span>        <span class="Type">this</span>.saldo = saldo;
+<span id="L19" class="LineNr">19 </span>    }
+<span id="L20" class="LineNr">20 </span>
+<span id="L21" class="LineNr">21 </span>
+<span id="L22" class="LineNr">22 </span>}
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->

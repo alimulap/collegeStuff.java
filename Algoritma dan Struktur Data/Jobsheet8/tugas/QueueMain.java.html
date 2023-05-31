@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>F:\Kuliah\Code\collegeStuff.java\Algoritma dan Struktur Data\Jobsheet8\tugas\QueueMain.java.html</title>
+<meta name="Generator" content="Vim/8.0">
+<meta name="plugin-version" content="vim8.1_v2">
+<meta name="syntax" content="java">
+<meta name="settings" content="number_lines,use_css,no_foldcolumn,expand_tabs,line_ids,prevent_copy=,use_input_for_pc=fallback">
+<meta name="colorscheme" content="tokyonight">
+<style>
+<!--
+pre { font-family: monospace; color: #c8d3f5; background-color: #000000; }
+body { font-family: monospace; color: #c8d3f5; background-color: #000000; }
+* { font-size: 1em; }
+.PreProc { color: #86e1fc; }
+.String { color: #c3e88d; }
+.Constant { color: #ff966c; }
+.LineNr { color: #3b4261; }
+.Statement { color: #c099ff; }
+.Repeat { color: #c099ff; }
+.Type { color: #65bcff; }
+.Operator { color: #89ddff; }
+.Conditional { color: #c099ff; }
+-->
+</style>
+
+<script>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  var lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<pre id='vimCodeElement'>
+<span id="L1" class="LineNr"> 1 </span><span class="PreProc">package</span> tugas;
+<span id="L2" class="LineNr"> 2 </span>
+<span id="L3" class="LineNr"> 3 </span><span class="PreProc">import</span> java.util.Scanner;
+<span id="L4" class="LineNr"> 4 </span>
+<span id="L5" class="LineNr"> 5 </span><span class="Type">class</span> QueueMain {
+<span id="L6" class="LineNr"> 6 </span>    <span class="Type">public</span> <span class="Type">static</span> <span class="Type">void</span> main(String[] args) {
+<span id="L7" class="LineNr"> 7 </span>        Scanner sc = <span class="Operator">new</span> Scanner(System.in);
+<span id="L8" class="LineNr"> 8 </span>
+<span id="L9" class="LineNr"> 9 </span>        System.out.print(<span class="String">&quot;Masukkan kapasitas queue: &quot;</span>);
+<span id="L10" class="LineNr">10 </span>        <span class="Type">int</span> n = sc.nextInt();
+<span id="L11" class="LineNr">11 </span>
+<span id="L12" class="LineNr">12 </span>        Queue antri = <span class="Operator">new</span> Queue(n);
+<span id="L13" class="LineNr">13 </span>
+<span id="L14" class="LineNr">14 </span>        <span class="Type">int</span> pilih;
+<span id="L15" class="LineNr">15 </span>        <span class="Repeat">do</span> {
+<span id="L16" class="LineNr">16 </span>            menu();
+<span id="L17" class="LineNr">17 </span>            pilih = sc.nextInt();
+<span id="L18" class="LineNr">18 </span>            sc.nextLine();
+<span id="L19" class="LineNr">19 </span>            System.out.println(<span class="String">&quot;========================&quot;</span>);
+<span id="L20" class="LineNr">20 </span>            <span class="Conditional">switch</span> (pilih) {
+<span id="L21" class="LineNr">21 </span>                <span class="Statement">case</span> <span class="Constant">1</span>:
+<span id="L22" class="LineNr">22 </span>                    <span class="Conditional">if</span> (antri.isFull())
+<span id="L23" class="LineNr">23 </span>                        System.out.println(<span class="String">&quot;Queue penuh&quot;</span>);
+<span id="L24" class="LineNr">24 </span>                    <span class="Conditional">else</span> {
+<span id="L25" class="LineNr">25 </span>                        System.out.print(<span class="String">&quot;Nama: &quot;</span>);
+<span id="L26" class="LineNr">26 </span>                        String nama = sc.nextLine();
+<span id="L27" class="LineNr">27 </span>                        System.out.print(<span class="String">&quot;No HP: &quot;</span>);
+<span id="L28" class="LineNr">28 </span>                        <span class="Type">int</span> noHP = sc.nextInt();
+<span id="L29" class="LineNr">29 </span>                        Pembeli pb = <span class="Operator">new</span> Pembeli(nama, noHP);
+<span id="L30" class="LineNr">30 </span>                        sc.nextLine();
+<span id="L31" class="LineNr">31 </span>                        antri.enqueue(pb);
+<span id="L32" class="LineNr">32 </span>                    }
+<span id="L33" class="LineNr">33 </span>                    <span class="Conditional">break</span>;
+<span id="L34" class="LineNr">34 </span>                <span class="Statement">case</span> <span class="Constant">2</span>:
+<span id="L35" class="LineNr">35 </span>                    DequeueResult dataKeluar = antri.dequeue();
+<span id="L36" class="LineNr">36 </span>                    <span class="Conditional">if</span> (dataKeluar.success)
+<span id="L37" class="LineNr">37 </span>                        System.out.println(<span class="String">&quot;Data yang dikeluarkan: &quot;</span> +
+<span id="L38" class="LineNr">38 </span>                                dataKeluar.value.nama + <span class="String">&quot; &quot;</span> +
+<span id="L39" class="LineNr">39 </span>                                dataKeluar.value.noHP);
+<span id="L40" class="LineNr">40 </span>                    <span class="Conditional">break</span>;
+<span id="L41" class="LineNr">41 </span>                <span class="Statement">case</span> <span class="Constant">3</span>:
+<span id="L42" class="LineNr">42 </span>                    antri.peek();
+<span id="L43" class="LineNr">43 </span>                    <span class="Conditional">break</span>;
+<span id="L44" class="LineNr">44 </span>                <span class="Statement">case</span> <span class="Constant">4</span>:
+<span id="L45" class="LineNr">45 </span>                    antri.peekRear();
+<span id="L46" class="LineNr">46 </span>                    <span class="Conditional">break</span>;
+<span id="L47" class="LineNr">47 </span>                <span class="Statement">case</span> <span class="Constant">5</span>:
+<span id="L48" class="LineNr">48 </span>                    antri.daftarPembeli();
+<span id="L49" class="LineNr">49 </span>                    <span class="Conditional">break</span>;
+<span id="L50" class="LineNr">50 </span>                <span class="Statement">case</span> <span class="Constant">6</span>:
+<span id="L51" class="LineNr">51 </span>                    System.out.print(<span class="String">&quot;Masukkan nama pembeli: &quot;</span>);
+<span id="L52" class="LineNr">52 </span>                    String nama = sc.nextLine();
+<span id="L53" class="LineNr">53 </span>                    antri.peekPosition(nama);
+<span id="L54" class="LineNr">54 </span>                    <span class="Conditional">break</span>;
+<span id="L55" class="LineNr">55 </span>            }
+<span id="L56" class="LineNr">56 </span>        } <span class="Repeat">while</span> (<span class="Constant">1</span> &lt;= pilih &amp;&amp; pilih &lt;= <span class="Constant">6</span>);
+<span id="L57" class="LineNr">57 </span>    }
+<span id="L58" class="LineNr">58 </span>
+<span id="L59" class="LineNr">59 </span>    <span class="Type">static</span> <span class="Type">void</span> menu() {
+<span id="L60" class="LineNr">60 </span>        System.out.println(<span class="String">&quot;========================&quot;</span>);
+<span id="L61" class="LineNr">61 </span>        System.out.println(<span class="String">&quot;Masukkan operasi yang diinginkan: &quot;</span>);
+<span id="L62" class="LineNr">62 </span>        System.out.println(<span class="String">&quot;1. Antrian baru&quot;</span>);
+<span id="L63" class="LineNr">63 </span>        System.out.println(<span class="String">&quot;2. Antrian keluar&quot;</span>);
+<span id="L64" class="LineNr">64 </span>        System.out.println(<span class="String">&quot;3. Cek antrian terdepan&quot;</span>);
+<span id="L65" class="LineNr">65 </span>        System.out.println(<span class="String">&quot;4. Cek antrian terbelakang&quot;</span>);
+<span id="L66" class="LineNr">66 </span>        System.out.println(<span class="String">&quot;5. Cek semua pembeli&quot;</span>);
+<span id="L67" class="LineNr">67 </span>        System.out.println(<span class="String">&quot;6. Cek posisi pembeli&quot;</span>);
+<span id="L68" class="LineNr">68 </span>        System.out.println(<span class="String">&quot;========================&quot;</span>);
+<span id="L69" class="LineNr">69 </span>    }
+<span id="L70" class="LineNr">70 </span>}
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
